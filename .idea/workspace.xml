@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1309d5e9-bc9b-4baa-8f89-38c893e94993" name="Default" comment="" />
+    <list default="true" id="1309d5e9-bc9b-4baa-8f89-38c893e94993" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/WOW-frontPage/index.html" afterPath="$PROJECT_DIR$/WOW-frontPage/index.html" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -84,11 +86,6 @@
               <item name="Tasks" type="b2602c69:ProjectViewProjectNode" />
               <item name="Tasks" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Tasks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tasks" type="462c0819:PsiDirectoryNode" />
-              <item name="loginPage" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -126,7 +123,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534493936974</updated>
-      <workItem from="1534493939284" duration="3672000" />
+      <workItem from="1534493939284" duration="4237000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1534508883810</created>
@@ -139,7 +136,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3672000" />
+    <option name="totallyTimeSpent" value="4237000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
