@@ -1,0 +1,208 @@
+/** css reset**/
+body,h1,h2,h3,h4,h5,h6,ul,li,ol,dl,dt,dd,p{
+    margin: 0;
+    padding: 0;
+}
+ul,ol{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+
+
+/** common css **/
+.clearfix::after{
+    content:'';
+    display: block;
+    clear:both;
+}
+.layout{
+    width:1200px;
+    margin:0 auto;
+}
+*{
+    box-sizing: border-box;
+}
+
+/** page css **/
+body{
+    font:12px/1.3 Arial;
+    background-color: #000;
+}
+html,body{
+    height: 100%;
+}
+#header{
+    background: url("../img/back.png") center center no-repeat;
+    height:100%;
+    background-size: cover;
+    overflow: hidden;
+}
+.navbar{
+    margin-top: 40px;
+}
+.navbar>li{
+    float:left;
+    border:1px solid #3f2a22;
+    border-left: none;
+    width:160px;
+    height: 70px;
+    background-color: #261712;
+}
+.navbar>li:first-child{
+    border-left:1px solid #3f2a22;
+}
+.navbar a{
+    display: block;
+    height: 70px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #f8b408;
+    line-height: 70px;
+}
+.navbar .logo{
+     width: 240px;
+ }
+.logo img{
+    position: relative;
+    margin-top: -40px;
+}
+#content{
+    background-color: #120d0a;
+    border-top:2px solid #030501;
+    padding-top: 40px;
+}
+#content .item{
+    width:288px;
+    float: left;
+    margin-left: 16px;
+}
+#content .item a{
+    display: block;
+    transition: all .3s;
+}
+#content .item:hover a{
+    transform:translateY(-30px);
+}
+#content .item:hover h3{
+    color:#fff;
+}
+#content .container{
+    margin-left: -16px;
+}
+#content .item h3{
+    background-color: #251812;
+    color:#f8b700;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    line-height: 70px;
+}
+#content .item img{
+    width:288px;
+}
+.business{
+    width:1000px;
+    margin:40px auto;
+    padding-top: 40px;
+}
+.business .logos{
+    width:330px;
+    float: left;
+}
+.contact a{
+    color:#fff;
+    margin-right: 20px;
+    font-size: 14px;
+}
+.icon{
+    width:22px;
+    height: 22px;
+    display: inline-block;
+    background-image: url("../img/icons.png");
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+.icon-customSrv{
+    background-position: -5px -6px;
+}
+.icon-feedback{
+    background-position: -5px -32px;
+}
+.icon-join{
+    background-position: -35px -6px;
+}
+.business .partners{
+    margin-top: 70px;
+}
+.business .partners a{
+    display: inline-block;
+    vertical-align: top;
+}
+.logo-wangyi{
+    margin-top: 40px;
+    margin-left: 20px;
+}
+.info{
+    margin-left: 350px;
+}
+.cooperate a{
+    display: inline-block;
+    background-image: url("../img/icon2.png");
+    vertical-align: middle;
+    margin-left: 5px;
+}
+.cooperate{
+    color:#fff;
+    text-align: right;
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+.logo-intel{
+    width:34px;
+    height:22px;
+    background-position: -4px -29px;
+    margin-top: 5px;
+}
+.logo-nvidia{
+    width:100px;
+    height:22px;
+    background-position: -39px -29px;
+}
+.support{
+    color:#ccc;
+    font-size: 16px;
+    margin-left: -10px;
+    margin-bottom: 10px;
+    margin-top: 60px;
+}
+.support>a{
+    color:#ccc;
+    padding: 0 10px;
+}
+.support>a:hover{
+    color: #fff;
+}
+.copyright{
+    font-size:12px;
+    color: rgba(255,255,255,.3);
+    line-height: 20px;
+}
+.copyright>a{
+    color: rgba(255,255,255,.3);
+}
+.copyright>a:hover{
+    color:#fff;
+}
+.suggestion{
+    color: rgba(255,255,255,.3);
+    padding-top: 40px;
+    padding-bottom: 60px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 20px;
+    border-top: 1px solid #282d32;
+}
