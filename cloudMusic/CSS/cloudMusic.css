@@ -285,7 +285,8 @@ a{
 .main-content{
     width:802px;
     height: 545px;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     float: right;
 }
 .main-content::-webkit-scrollbar{
@@ -311,7 +312,11 @@ a{
     padding-left: 31px;
     padding-right: 31px;
 }
+.red{
+    color: #b5321e;
+}
 .carousel{
+    width:800px;
     height: 233px;
     position: relative;
 }
@@ -452,7 +457,7 @@ a:active{
 
 .buttons{
     position: absolute;
-    width: 800px;
+    width: 790px;
     height: 30px;
     top:207px;
     text-align: center;
