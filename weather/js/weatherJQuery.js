@@ -260,7 +260,7 @@ function getNews() {
         dataType: 'json',
         data: {
             "showapi_timestamp": formatterDateTime(),
-            "showapi_appid": '75855', //这里需要改成自己的appid
+            "showapi_appid": '75855', //这里需要改成自己的appids
             "showapi_sign": '3e84e59cde67496fb2d24a03ff102a4c', //这里需要改成自己的应用的密钥secret
             "channelId":"",
             "channelName":"",
