@@ -256,7 +256,7 @@ function getNews() {
     isNewsArrived=false;
     $.ajax({
         type: 'get',
-        url: 'http://route.showapi.com/109-35',
+        url: 'https://route.showapi.com/109-35',
         dataType: 'json',
         data: {
             "showapi_timestamp": formatterDateTime(),
