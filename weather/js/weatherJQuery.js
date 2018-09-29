@@ -105,10 +105,11 @@ function getWeather(cityName) {
     $('.localCityName').text(cityName);
     $.ajax({
         method:'get',
-        url:'http://wthrcdn.etouch.cn/weather_mini?city='+cityName
+        url:'http://wthrcdn.etouch.cn/weather_mini?city='+cityName+'&callback=fabc'
     })
         .done(function (result) {
-            weather(result);
+            console.log(result);
+            //weather(result);
         })
 }
 
