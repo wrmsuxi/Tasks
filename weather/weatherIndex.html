@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/weather.css">
+</head>
+<body>
+<div id="layout">
+    <div class="bag-img"></div>
+    <div class="container">
+        <div class="wrap" >
+            <div class="inputContainer">
+                <input type="text" id="cityInput" placeholder="在此输入切换城市..." />
+                <ul class="chooseBox"></ul>
+            </div>
+            <div class="location">
+                <p class="iconfont local">&#xe64b;</p>
+                <p class="localCityName">北京</p>
+            </div>
+        </div>
+        <div class="detail">
+            <ul class="navBar clearfix">
+                <li class="active"><span class="iconfont">&#xe61b;</span>WEATHER</li>
+                <li><span class="iconfont">&#xe62a;</span>NEWS & EVENTS</li>
+                <li><span class="iconfont">&#xe620;</span>GALLERY</li>
+            </ul>
+            <div class="contentWrap">
+                <div class="contents clearfix">
+                    <div class="content">
+                        <ul class="tempPanel clearfix">
+                            <li class="firstDetail clearfix">
+                                <div class="leftPart">
+                                    <span class="bigTemp">35</span>
+                                    <span class="date">MONDAY 27<sup>th</sup></span>
+                                </div>
+                                <div class="rightPart">
+                                    <span class="iconfont bigIcon">&#xe616;</span>
+                                    <span class="air">西南风 / 4级</span>
+                                </div>
+
+                            </li>
+                            <li>
+                                <p class="week">TUE</p>
+                                <p class="iconfont weaIcon">&#xe61b;</p>
+                                <p><span class="temp">24</span>~<span class="temp">25</span></p>
+                            </li>
+                            <li>
+                                <p class="week">TUE</p>
+                                <p class="iconfont weaIcon">&#xe61b;</p>
+                                <p><span class="temp">24</span>~<span class="temp">25</span></p>
+                            </li>
+                            <li>
+                                <p class="week">TUE</p>
+                                <p class="iconfont weaIcon">&#xe61b;</p>
+                                <p><span class="temp">24</span>~<span class="temp">25</span></p>
+                            </li>
+                            <li>
+                                <p class="week">TUE</p>
+                                <p class="iconfont weaIcon">&#xe61b;</p>
+                                <p><span class="temp">24</span>~<span class="temp">25</span></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content scrollWrap">
+                        <div class="newsContainer clearfix">
+                            <div class="loadMoreNews"></div>
+                        </div>
+
+                    </div>
+                    <div class="content imgCon clearfix">
+                        <p class="loadMoreImgs"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/weatherJQuery.js"></script>
+</body>
+</html>
