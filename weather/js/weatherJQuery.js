@@ -103,7 +103,7 @@ $chooseBox.on('click',function (e) {
 //获取天气数据
 function getWeather(cityName) {
     $('.localCityName').text(cityName);
-    $("head").append("<script src='http://wthrcdn.etouch.cn/weather_mini?city='+cityName+'&callback=weather'><\/script>");
+    $("head").append("<script src='http://wthrcdn.etouch.cn/weather_mini?city="+cityName+"&callback=weather'><\/script>");
     // $.ajax({
     //     method:'get',
     //     url:'http://wthrcdn.etouch.cn/weather_mini?city='+cityName
