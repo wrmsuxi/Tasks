@@ -103,38 +103,69 @@ $chooseBox.on('click',function (e) {
 //获取天气数据
 function getWeather(cityName) {
     $('.localCityName').text(cityName);
-    $("head").append("<script src='http://wthrcdn.etouch.cn/weather_mini?city="+cityName+"&callback=weather'><\/script>");
+    //$("head").append("<script src='http://wthrcdn.etouch.cn/weather_mini?city="+cityName+"&callback=weather'><\/script>");
+    $.ajax({
+        type: 'post',
+        url: 'https://route.showapi.com/9-2',
+        dataType: 'json',
+        data: {
+            "showapi_timestamp": formatterDateTime(),
+            "showapi_appid": '76474', //这里需要改成自己的appid
+            "showapi_sign": 'bb1fefabb93d40638cba9ead239b610e',  //这里需要改成自己的应用的密钥secret
+            "areaid":"",
+            "area":cityName,
+            "needMoreDay":"1",
+            "needIndex":"0",
+            "needHourData":"0",
+            "need3HourForcast":"0",
+            "needAlarm":"0"}
+    }).done(function (result) {
+        console.log(result);
+        weather(result);
+    })
     // $.ajax({
-    //     method:'get',
-    //     url:'http://wthrcdn.etouch.cn/weather_mini?city='+cityName
-    // })
-    //     .done(function (result) {
-    //         weather(result);
-    //     })
+    //         type: 'post',
+    //         url: 'http://route.showapi.com/9-2',
+    //         dataType: 'json',
+    //         data: {
+    //             "showapi_timestamp": formatterDateTime(),
+    //             "showapi_appid": '76474', //这里需要改成自己的appid
+    //             "showapi_sign": 'bb1fefabb93d40638cba9ead239b610e',  //这里需要改成自己的应用的密钥secret
+    //             "areaid":"",
+    //             "area":cityName,
+    //             "needMoreDay":"1",
+    //             "needIndex":"0",
+    //             "needHourData":"0",
+    //             "need3HourForcast":"0",
+    //             "needAlarm":"0"}
+    //         }).done(function (result) {
+    //         console.log()
+    //         //weather(result);
+    //     }
 }
 
 //设置天气
 function weather(result) {
-    var result=JSON.parse(result);
-    var weatherFore=result.data.forecast;
-
-    var temp=weatherFore[0].high.substr(3,2);
-    var fengli=weatherFore[0].fengli.substring(9,weatherFore[0].fengli.length-3);
+   // var result=JSON.parse(result);
+    var weatherFore=result.showapi_res_body;
+    var tempArr=weatherFore['f1'].day_wind_power.split(' ');
+    var temp=weatherFore['f1'].day_air_temperature;
+    var fengli=tempArr[0];
     var liDetail=$tempPanelLis.eq(0).children();
     var leftPar=liDetail.eq(0).children();
     var rightPar=liDetail.eq(1).children();
     leftPar.eq(0).text(temp);
-    leftPar.eq(1).html(getDate(weatherFore[0].date));
-    rightPar.eq(0).html('<span class="iconfont bigIcon">'+getWeaIcon(weatherFore[0].type)+'</span>');
-    rightPar.eq(1).text(weatherFore[0].fengxiang+' / '+fengli);
+    leftPar.eq(1).html(getDate(weatherFore['f1'].day,weatherFore['f1'].weekday));
+    rightPar.eq(0).html('<span class="iconfont bigIcon">'+getWeaIcon(weatherFore['f1'].day_weather)+'</span>');
+    rightPar.eq(1).text(weatherFore['f1'].day_wind_direction+' / '+fengli);
 
     for(var i=1;i<$tempPanelLis.length;i++){
-        var dayZh=weatherFore[i].date.substr(weatherFore[i].date.length-1,1);
+        var dayZh=weatherFore['f'+i].weekday;
         var liInner=$tempPanelLis.eq(i).children();
-        var tempH=weatherFore[i].high.substr(3,2);
-        var tempL=weatherFore[i].low.substr(3,2);
+        var tempH=weatherFore['f'+i].day_air_temperature;
+        var tempL=weatherFore['f'+i].night_air_temperature;
         liInner.eq(0).text(getDayEng(dayZh));
-        liInner.eq(1).html('<p class="iconfont weaIcon">'+getWeaIcon(weatherFore[i].type)+'</p>');
+        liInner.eq(1).html('<p class="iconfont weaIcon">'+getWeaIcon(weatherFore['f'+i].day_weather)+'</p>');
         liInner.eq(2).html('<span class="temp">'+tempL+'</span>~<span class="temp">'+tempH+'</span>');
     }
 }
@@ -161,44 +192,44 @@ function checkBottom() {
 
 
 //返回星期+日期
-function getDate(dateStr){
+function getDate(dateStr,dayStr){
     var result='';
-    switch (dateStr.substr(dateStr.length-1,1)){
-        case '一':result='MONDAY ';
+    switch (dayStr){
+        case 1:result='MONDAY ';
             break;
-        case '二':result='TUESDAY ';
+        case 2:result='TUESDAY ';
             break;
-        case '三':result='WEDNESDAY ';
+        case 3:result='WEDNESDAY ';
             break;
-        case '四':result='THURSDAY ';
+        case 4:result='THURSDAY ';
             break;
-        case '五':result='FRIDAY ';
+        case 5:result='FRIDAY ';
             break;
-        case '六':result='SATURDAY ';
+        case 6:result='SATURDAY ';
             break;
-        case '天':result='SUNDAY ';
+        case 7:result='SUNDAY ';
             break;
     }
-    return result+parseInt(dateStr)+'<sup>th</sup>';
+    return result+dateStr.substring(6,7)+'<sup>th</sup>';
 }
 
 //返回星期的缩写
 function getDayEng(zh) {
     var result='';
     switch(zh){
-        case '一':result='MON';
+        case 1:result='MON';
             break;
-        case '二':result='TUES';
+        case 2:result='TUES';
             break;
-        case '三':result='WED';
+        case 3:result='WED';
             break;
-        case '四':result='THUR';
+        case 4:result='THUR';
             break;
-        case '五':result='FRI';
+        case 5:result='FRI';
             break;
-        case '六':result='SAT';
+        case 6:result='SAT';
             break;
-        case '天':result='SUN';
+        case 7:result='SUN';
             break;
     }
     return result;
@@ -363,7 +394,6 @@ function getImgs() {
             "per_page":5
         }
     }).done(function (result) {
-        console.log(result);
         curImgIndex++;
         render(result.hits);
         isImgArrived=true;
@@ -407,7 +437,6 @@ function layout(rowList,baseH) {
         $fig.width(this.radio*baseH);
         $fig.height(baseH);
         $fig.append($img);
-        console.log($fig);
         $fig.insertBefore($loadMoreImgs);
     })
 }
