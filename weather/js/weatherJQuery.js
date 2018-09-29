@@ -74,7 +74,6 @@ $input.on('input',function () {
                 lis.push(str);
             }
         }
-        console.log(lis);
         if (lis.length > 0) {
             $chooseBox.html(lis.join(""));
         }else{
@@ -120,28 +119,8 @@ function getWeather(cityName) {
             "need3HourForcast":"0",
             "needAlarm":"0"}
     }).done(function (result) {
-        console.log(result);
         weather(result);
     })
-    // $.ajax({
-    //         type: 'post',
-    //         url: 'http://route.showapi.com/9-2',
-    //         dataType: 'json',
-    //         data: {
-    //             "showapi_timestamp": formatterDateTime(),
-    //             "showapi_appid": '76474', //这里需要改成自己的appid
-    //             "showapi_sign": 'bb1fefabb93d40638cba9ead239b610e',  //这里需要改成自己的应用的密钥secret
-    //             "areaid":"",
-    //             "area":cityName,
-    //             "needMoreDay":"1",
-    //             "needIndex":"0",
-    //             "needHourData":"0",
-    //             "need3HourForcast":"0",
-    //             "needAlarm":"0"}
-    //         }).done(function (result) {
-    //         console.log()
-    //         //weather(result);
-    //     }
 }
 
 //设置天气
