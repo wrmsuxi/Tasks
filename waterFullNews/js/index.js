@@ -58,7 +58,7 @@ function getNews() {
     isNewsArrived=false;
     $.ajax({
         type: 'post',
-        url: 'http://route.showapi.com/109-35',
+        url: 'https://route.showapi.com/109-35',
         dataType: 'json',
         data: {
             "showapi_timestamp": formatterDateTime(),
@@ -149,7 +149,6 @@ function isVisible($img) {
     var scrollTop=$(window).scrollTop();//滚动的距离
     var offset=$img.offset().top;//元素到顶部的距离
     var imgHeight=$img.outerHeight();//元素高度
-    console.log('窗口：',windowHeight,'滚动：',scrollTop,'元素到顶部',offset,'元素高度',imgHeight)
     if(offset<windowHeight+scrollTop && scrollTop<offset+imgHeight){
         return true;
     }
